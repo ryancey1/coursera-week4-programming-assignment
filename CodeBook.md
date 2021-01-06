@@ -18,11 +18,9 @@ In this project, we are only concerned with measurements on the mean() and std()
 
 ## Tidying Process
 
-This pipeline relies *heavily* on the 'tidyverse' suite of libraries, so the first process that occurs is an if-else block which ensures that the libraries are downloaded and attached to the environment. Then, both the test and the training data were imported into Rstudio via the `read.delim()` function.
+This pipeline relies *heavily* on the 'tidyverse' suite of libraries -- see `tidyverse::tidyverse_packages()` -- so the first process that occurs is an "if-else" block which ensures that the libraries are downloaded and attached to working environment. 
 
-``` {r}
-tidyverse::tidyverse_packages()
-```
+Next, both the test and the training data were imported into Rstudio via the `read.delim()` function.
 
 For annotation data (variables and observations), only a subset with the column containing the names is retained. Using `cbind()` and `rbind()`, the training and test measurements were merged together, as well as the training and test group data -- this was done in such a way so as to retain the same order in both sets.
 
@@ -32,5 +30,25 @@ To extract the columns we are interested in, a logical test was performed using 
 cols_keep <- grepl("mean|std", features)
 extracted <- data[,cols_keep]
 ```
+
+Next, the activity names were cleaned up by removing underscores and converting to sentence case with a house-made sentence case function:
+
+```r
+toSentenceCase <- function(string) {
+        cap <- function(string) paste(toupper(substring(string, 1, 1)),
+                                 {string <- substring(string, 2); tolower(string)},
+                                 sep = "", collapse = " " )
+        sapply(strsplit(string, split = " "), cap, USE.NAMES = !is.null(names(string)))
+}
+```
+
+This code chunk was iterated over the activity names vector, and then the vector itself was repeated using the `rep()` function. The result is a conversion like the following:
+
+Raw | Tidied
+-|-
+WALKING_UPSTAIRS | WalkingUpstairs
+LAYING | Laying
+WALKING_DOWNSTAIRS | WalkingDownstairs
+
 
 ## Variable Dictionary
