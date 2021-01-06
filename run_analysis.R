@@ -82,6 +82,8 @@ message("Tidying up feature labels...")
 tidy_variables <- features[cols_keep]
 tidy_variables <- sub("^t", "Time-", tidy_variables)
 tidy_variables <- sub("^f", "Freq-", tidy_variables)
+tidy_variables <- sub("Acc", "Accelerometer", tidy_variables)
+tidy_variables <- sub("Gyro", "Gyroscope", tidy_variables)
 tidy_variables <- c("Subject", "Activity", tidy_variables)
 
 # clean up environment
