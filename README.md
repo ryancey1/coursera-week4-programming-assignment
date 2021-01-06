@@ -6,12 +6,17 @@
 
 The script in this repo (`run_analysis.R`) was developed to perform 5 essential functions after downloading and importing a specific data set.
 
-
-
 The data set is available for download [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). 
 
 
-**NOTE:** the script downloads, unzips, and imports the data itself prior to tidying for reproducibility.
+**NOTE 1:** the script downloads, unzips, and imports the data itself prior to tidying for reproducibility.
+
+**NOTE 2:** Import the tidy data set into R using the following command:
+
+```r
+# Replace "data" with your name of choice
+data <- read.table("tidy_data.txt", header = TRUE, check.names = FALSE)
+```
 
 ## Repository contents
 
