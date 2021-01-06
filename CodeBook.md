@@ -54,9 +54,9 @@ Lastly, before summarizing the data, the variables were updated to be more reada
 
 Raw | Tidied
 -|-
-tBodyAcc-mean()-X | Time-BodyAcc-mean()-X
-tGravityAcc-std()-Y | Time-GravityAcc-std()-Y
-fBodyGyro-std()-Z | Freq-BodyGyro-std()-Z
+tBodyAcc-mean()-X | Time-BodyAccelerometer-mean()-X
+tGravityAcc-std()-Y | Time-GravityAccelerometer-std()-Y
+fBodyGyro-std()-Z | Freq-BodyGyroscope-std()-Z
 
 Lastly, the `group_by()` dplyr function was used to generate groups in the combined observation data according to the activity and the subject. Using `across()` paired with `summarize()`, it was possible to loop a `mean()` function across each variable for each subject performing each activity. The resulting data frame was then combined with the tidied activity names, subject IDs, and the tidied variables to form the final tidied data set.
 
@@ -67,3 +67,33 @@ write.table(result, file = "tidy_data.txt", quote = FALSE, row.names = FALSE)
 ```
 
 ## Variable Dictionary
+
+Variables contain different parameters (Domain, Signal, Instrument, Estimation, Axis) in the format: **Domain-SignalInstrument(Derivation)-Estimation-Axis**.
+
+Axes can be either X, Y, or Z. Derivations are not present in all variables.
+
+Domain | Definition
+-|-
+Time | Time domain signals from accelerometer/gyroscope
+Freq | Frequency domain signals from accelerometer/gyroscope
+
+Signal | Definition
+-|-
+Body | Acceleration signal originating from *body*
+Gravity | Acceleration signal originating from *gravity*
+
+Instrument | Definition
+-|-
+Accelerometer | One instrument used to take the measurement
+Gyroscope | Another instrument used to take the measurement
+
+Derivation | Definition
+-|-
+Jerk | Signal derived from acceleration/angular velocity signals
+Mag | Magnitude of signals calculated using the Euclidean norm
+
+Estimation | Definition
+-|-
+mean() | Mean value
+std() | Standard deviation
+meanFreq() | Weighted average of the frequency components to obtain a mean frequency
