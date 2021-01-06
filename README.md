@@ -6,11 +6,7 @@
 
 The script in this repo (`run_analysis.R`) was developed to perform 5 essential functions after downloading and importing a specific data set.
 
-1. Merges the training and the test sets to create one data set.
-2. Extracts only the measurements on the mean and standard deviation for each measurement. 
-3. Uses descriptive activity names to name the activities in the data set
-4. Appropriately labels the data set with descriptive variable names. 
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
 
 The data set is available for download [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones). 
 
@@ -48,11 +44,23 @@ source("run_analysis.R")
 
 The console will update you on its progress with messages.
 
+In brief, the script achieves the following:
+
+0. Runs housekeeping functions and imports data.
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names. 
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+6. Exports space-delimited, tidy data set from step 5
+
+**NOTE**: The output from step 6 is `tidy_data.txt`.
+
 ***
 
 ### CodeBook.md
 
-A deep breakdown of all the variables and abbreviations used in the data set.
+A breakdown and explanation of all the variables/abbreviations.
 
 ***
 
