@@ -50,7 +50,7 @@ WALKING_UPSTAIRS | WalkingUpstairs
 LAYING | Laying
 WALKING_DOWNSTAIRS | WalkingDownstairs
 
-Lastly, before summarizing the data, the variables were updated to be more readable by utilizing the `sub()` base function to obtain a vector of variables formatted like the following:
+Lastly, before summarizing the data, the variables were updated to be more readable by utilizing the `sub()` base function to obtain a vector of tidied variables formatted like the following:
 
 Raw | Tidied
 -|-
@@ -58,7 +58,12 @@ tBodyAcc-mean()-X | Time-BodyAcc-mean()-X
 tGravityAcc-std()-Y | Time-GravityAcc-std()-Y
 fBodyGyro-std()-Z | Freq-BodyGyro-std()-Z
 
-These were all stored for later use.
+Lastly, the `group_by()` dplyr function was used to generate groups in the combined observation data according to the activity and the subject. Using `across()` paired with `summarize()`, it was possible to loop a `mean()` function across each variable for each subject performing each activity. The resulting data frame was then combined with the tidied activity names, subject IDs, and the tidied variables to form the final tidied data set.
 
+Lastly, the tidied data (`result`) was exported using the following code:
+
+```r
+write.table(result, file = "tidy_data.txt", quote = FALSE, row.names = FALSE)
+```
 
 ## Variable Dictionary
