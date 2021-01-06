@@ -42,7 +42,7 @@ toSentenceCase <- function(string) {
 }
 ```
 
-This chunk was iterated over the activity names vector, and then the vector itself was repeated using the `rep()` function to obtain a string of the same dimension as the number of rows for the final tidied data (30 subjects with 6 activities = 180 rows). The result is a large string with the activity names converted like the following:
+This chunk was iterated over the activity names vector, and then the vector itself was repeated using the `rep()` function to obtain a string of the same dimension as the number of rows for the final tidied data (30 subjects with 6 activities = 180 rows). The result was a large vector with activity names converted like the following:
 
 Raw | Tidied
 -|-
@@ -50,14 +50,15 @@ WALKING_UPSTAIRS | WalkingUpstairs
 LAYING | Laying
 WALKING_DOWNSTAIRS | WalkingDownstairs
 
-Lastly, before summarizing the data, the variables were updated to be more readable by utilizing the `sub()` base function to obtain variables formatted like the following:
+Lastly, before summarizing the data, the variables were updated to be more readable by utilizing the `sub()` base function to obtain a vector of variables formatted like the following:
 
 Raw | Tidied
 -|-
 tBodyAcc-mean()-X | Time-BodyAcc-mean()-X
 tGravityAcc-std()-Y | Time-GravityAcc-std()-Y
-fBodyGyro-std()-Z | | Freq-BodyGyro-std()-Z
+fBodyGyro-std()-Z | Freq-BodyGyro-std()-Z
 
+These were all stored for later use.
 
 
 ## Variable Dictionary
