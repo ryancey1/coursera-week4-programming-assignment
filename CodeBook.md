@@ -57,6 +57,7 @@ Raw | Tidied
 tBodyAcc-mean()-X | Time-BodyAccelerometer-mean()-X
 tGravityAcc-std()-Y | Time-GravityAccelerometer-std()-Y
 fBodyGyro-std()-Z | Freq-BodyGyroscope-std()-Z
+fBodyAccJerk-meanFreq()-Y | Freq-BodyAccelerometer(Jerk)-meanFreq()-Y
 
 Lastly, the `group_by()` dplyr function was used to generate groups in the combined observation data according to the activity and the subject. Using `across()` paired with `summarize()`, it was possible to loop a `mean()` function across each variable for each subject performing each activity. The resulting data frame was then combined with the tidied activity names, subject IDs, and the tidied variables to form the final tidied data set.
 
@@ -68,7 +69,9 @@ write.table(result, file = "tidy_data.txt", quote = FALSE, row.names = FALSE)
 
 ## Variable Dictionary
 
-Variables contain different parameters (Domain, Signal, Instrument, Estimation, Axis) in the format: **Domain-SignalInstrument(Derivation)-Estimation-Axis**.
+Variables contain different parameters (Domain, Signal, Instrument, Estimation, Axis) in the format:
+
+**Domain-SignalInstrument(Derivation)-Estimation-Axis**
 
 Axes can be either X, Y, or Z. Derivations are not present in all variables.
 
