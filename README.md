@@ -6,7 +6,6 @@
 
 The script in this repo (`run_analysis.R`) was developed to perform 5 essential functions after downloading and importing a specific data set.
 
-
 1. Merges the training and the test sets to create one data set.
 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 3. Uses descriptive activity names to name the activities in the data set
@@ -41,10 +40,9 @@ The explainer file you are currently reading.
 
 ### run_analysis.R
 
-The exact recipe to get from the raw input to my tidy output. To run this script, clone this repo and set the git root (**coursera-week4-programming-assignment**) as your working directory. Run the following command:
+The exact recipe to get from the raw input to my tidy output. To run this script, clone this repo and set the git root as your working directory by running `setwd("/path/to/git/root")`. Then run the following command:
 
-```{r}
-setwd("/path/to/git/root")
+```r
 source("run_analysis.R")
 ```
 
