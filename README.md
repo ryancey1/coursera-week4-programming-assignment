@@ -61,7 +61,7 @@ In brief, the script achieves the following:
 
 **NOTE**: The output from step 6 is `tidy_data.txt`.
 
-Please reference "CodeBook.md" for full description of script and variables.
+Please reference [CodeBook.md]("https://github.com/ryancey1/coursera-week4-programming-assignment/blob/main/CodeBook.md") for full description of script and variables.
 
 ***
 
