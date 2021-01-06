@@ -18,7 +18,11 @@ In this project, we are only concerned with measurements on the mean() and std()
 
 ## Tidying Process
 
-This pipeline relies heavily on the tidyverse suite of libraries, so the first process that occurs is an if-else block which ensures that the libraries are downloaded and attached to the environment. Then, both the test and the training data were imported into Rstudio via the `read.delim()` function.
+This pipeline relies *heavily* on the 'tidyverse' suite of libraries, so the first process that occurs is an if-else block which ensures that the libraries are downloaded and attached to the environment. Then, both the test and the training data were imported into Rstudio via the `read.delim()` function.
+
+``` {r}
+tidyverse::tidyverse_packages()
+```
 
 For annotation data (variables and observations), only a subset with the column containing the names is retained. Using `cbind()` and `rbind()`, the training and test measurements were merged together, as well as the training and test group data -- this was done in such a way so as to retain the same order in both sets.
 
