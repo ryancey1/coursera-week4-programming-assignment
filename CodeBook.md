@@ -69,7 +69,7 @@ write.table(result, file = "tidy_data.txt", quote = FALSE, row.names = FALSE)
 
 ## Variable Dictionary
 
-Variables contain different parameters (Domain, Signal, Instrument, Estimation, Axis) in the format:
+Variables contain different parameters (Domain, Signal, Instrument, Derivation, Estimation, Axis) in the format:
 
 **Domain-SignalInstrument(Derivation)-Estimation-Axis**
 
