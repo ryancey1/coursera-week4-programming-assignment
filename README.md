@@ -93,8 +93,12 @@ data/
 
 ### tidy_data.txt
 
-The space-delimited output generated from sourcing `run_analysis.R`. A tidy data set is described by Hadley Wickham [here](http://vita.had.co.nz/papers/tidy-data.pdf).
+The space-delimited output generated from sourcing `run_analysis.R`. A tidy data set is described by Hadley Wickham [here](http://vita.had.co.nz/papers/tidy-data.pdf) (1).
 
 > 1. Each variable forms a column.
 > 2. Each observation forms a row.
 > 3. Each type of observational unit forms a table.
+
+##### Sources
+
+1. Wickham, H. Tidy Data. *Journal of Statistical Software* 59, 1–23 (2014).
