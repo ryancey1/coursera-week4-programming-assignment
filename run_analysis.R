@@ -80,10 +80,15 @@ rm(activity_labels, i, tmp, toSentenceCase)
 #### 4. Appropriately labels the data set with descriptive variable names. ####
 message("Tidying up feature labels...")
 tidy_variables <- features[cols_keep]
+
+## a mess of subs to fix variable names
 tidy_variables <- sub("^t", "Time-", tidy_variables)
 tidy_variables <- sub("^f", "Freq-", tidy_variables)
 tidy_variables <- sub("Acc", "Accelerometer", tidy_variables)
 tidy_variables <- sub("Gyro", "Gyroscope", tidy_variables)
+tidy_variables <- sub("Jerk", "(Jerk)", tidy_variables)
+tidy_variables <- sub("Mag", "(Mag)", tidy_variables)
+tidy_variables <- sub("BodyBody", "Body", tidy_variables)
 tidy_variables <- c("Subject", "Activity", tidy_variables)
 
 # clean up environment
