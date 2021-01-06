@@ -61,11 +61,11 @@ message("Tidying up activity labels...")
 # remove underscores while preserving order, create vector repeating over as many participants (30)
 tidy_activities <- sub("_", " ", activity_labels)
 # generic function from ?toupper help page
-toSentenceCase <- function(s) {
-        cap <- function(s) paste(toupper(substring(s, 1, 1)),
-                                 {s <- substring(s, 2); tolower(s)},
-                                 sep = "", collapse = " " )
-        sapply(strsplit(s, split = " "), cap, USE.NAMES = !is.null(names(s)))
+toSentenceCase <- function(string) {
+        cap <- function(string) paste(toupper(substring(string, 1, 1)),
+                                      {string <- substring(string, 2); tolower(string)},
+                                      sep = "", collapse = " " )
+        sapply(strsplit(string, split = " "), cap, USE.NAMES = !is.null(names(string)))
 }
 for(i in seq_along(tidy_activities)) {
         tmp <- toSentenceCase(tidy_activities[i])
