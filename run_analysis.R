@@ -1,4 +1,4 @@
-#### 0. Housekeeping functions & data import ####
+#### 0. Runs housekeeping functions & import data ####
 # ensures tidyverse components are installed/loaded
 if(!any(.packages() == "tidyverse")) {
         if(!"tidyverse" %in% installed.packages()) {
@@ -100,7 +100,7 @@ result <- arrange(result, result$Activity)
 # clean up environment
 rm(extracted, groups, tidy_activities, tidy_variables)
 
-#### 6. Exports tab-delimited, tidy data set from step 5 ####
+#### 6. Exports space-delimited, tidy data set from step 5 ####
 message("Exporting results...")
 write.table(result, file = "tidy_data.txt", quote = FALSE, row.names = FALSE)
 message("DONE - Tidy data exported to file: \'tidy_data.txt\'")
