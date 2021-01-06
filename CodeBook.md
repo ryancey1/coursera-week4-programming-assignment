@@ -20,9 +20,9 @@ In this project, we are only concerned with measurements on the mean() and std()
 
 This pipeline relies *heavily* on the 'tidyverse' suite of libraries -- see `tidyverse::tidyverse_packages()` -- so the first process that occurs is an "if-else" block which ensures that the libraries are downloaded and attached to working environment. 
 
-Next, both the test and the training data were imported into Rstudio via the `read.delim()` function.
+Next, both the test and the training data were imported into R via `read.delim()`.
 
-For annotation data (variables and observations), only a subset with the column containing the names is retained. Using `cbind()` and `rbind()`, the training and test measurements were merged together, as well as the training and test group data -- this was done in such a way so as to retain the same order in both sets.
+For annotation data (variables and activities), only a subset with the column containing the names is retained. Using `cbind()` and `rbind()`, the training and test measurements were merged together, as well as the training and test group data -- this was done in such a way so as to retain the same order in both sets for future merging.
 
 To extract the columns we are interested in, a logical test was performed using `grepl()` for the phrase: "mean|std" on the variables list. Since the ordering in the variables list directly matches the ordering of the columns in our combined data set, a new data frame was created by sub-setting the large data set according to the logical vector (see below for a code snippet).
 
@@ -42,13 +42,22 @@ toSentenceCase <- function(string) {
 }
 ```
 
-This code chunk was iterated over the activity names vector, and then the vector itself was repeated using the `rep()` function. The result is a conversion like the following:
+This chunk was iterated over the activity names vector, and then the vector itself was repeated using the `rep()` function to obtain a string of the same dimension as the number of rows for the final tidied data (30 subjects with 6 activities = 180 rows). The result is a large string with the activity names converted like the following:
 
 Raw | Tidied
 -|-
 WALKING_UPSTAIRS | WalkingUpstairs
 LAYING | Laying
 WALKING_DOWNSTAIRS | WalkingDownstairs
+
+Lastly, before summarizing the data, the variables were updated to be more readable by utilizing the `sub()` base function to obtain variables formatted like the following:
+
+Raw | Tidied
+-|-
+tBodyAcc-mean()-X | Time-BodyAcc-mean()-X
+tGravityAcc-std()-Y | Time-GravityAcc-std()-Y
+fBodyGyro-std()-Z | | Freq-BodyGyro-std()-Z
+
 
 
 ## Variable Dictionary
